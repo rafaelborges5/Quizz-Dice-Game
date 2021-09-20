@@ -1,0 +1,100 @@
+import random
+import os
+from time import sleep
+play = True
+questions_list = ["Qual o menor e o maior país do mundo?\na) Vaticano e Rússia\nb) Luxemburgo e China\nc) Mónaco e Rússia\nd) Mónaco e Estados Unidos", "O que a palavra \"legend\" significa em português?\na) Legenda\nb) Lendário\nc) Lenda\nd) Legendário", "Qual o número mínimo de jogadores numa partida de futebol?\na) 8\nb) 10\nc) 9\nd) 7", "Quem pintou \"Guernica\"?\na) Leonardo Da Vinci\nb) Pablo Picasso\nc) Diego Rivera\nd) Salvador Dalí", "Quanto tempo a luz do Sol demora para a chegar à terra?\na) segundos\nb) 1 dia\nc) 12 horas\nd) 8 minutos", "Como é a conjugação do verbo caber na 1.ª pessoa do singular do presente do indicativo?\na) Eu caibo\nb) Eu coube\nc) Eu cabo\nd) Nenhuma das alternativas", "Qual o maior animal do mundo?\na) Baleia Azul\nb) Elefante Africano\nc) Dinossauro\nd) Girafa", "Qual a religião monoteísta que conta com o maior número de adeptos no mundo?\na) Cristianismo\nb) Judaísmo\nc) Zoroastrismo\nd) Islamismo", "Em que ano o homem foi à Lua?\na) 1972\nb) 1970\nc) 1969\nd) 1971", "Qual o livro mais vendido no mundo?\na) O Senhor dos Anéis\nb) Dom Quixote\nc) Código Da Vinci\nd) Bíblia"]
+answers_list = ["a", "c", "d", "b", "d", "a", "a", "a", "c", "d"]
+correct_answer = False
+while play:
+  while play:
+    opc = input("1 - começar jogo / 2 - sair: ")
+    if opc != "1":
+      play = False
+      break
+    os.system("clear")
+    print("Boa sorte")
+    sleep(1.5)
+    os.system("clear")
+    print("Para passar à próxima fase tem de ganhar no jogo do dado")
+    sleep(2)
+    os.system("clear")
+    enter = input("Pressione enter para lançar o dado")
+    os.system("clear")
+    njogador = random.randint(1, 6)
+    npc = random.randint(1, 6)
+    if njogador <= npc:
+      print("O seu número foi " + str(njogador) + ", e o número do computador " + str(npc) + "\n")
+      print("Perdeu!\n")
+      break
+    else:
+      print("O seu número foi " + str(njogador) + ", e o número do computador " + str(npc))
+      print("Parabéns, passou à próxima fase!!!")
+    sleep(2.5)
+    os.system("clear")
+    print("Para passar à próxima fase tem de acertar 3 perguntas")
+    sleep(2)
+    os.system("clear")
+    number_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    for i in range(3):
+      question_number = random.choice(number_list)
+      number_list.remove(question_number)
+      print(questions_list[question_number])
+      answer = input("Coloque aqui a sua resposta: ")
+      if answer != answers_list[question_number]:
+        correct_answer = False
+        print("Perdeu!\n")
+        break
+      elif answer == answers_list[question_number]:
+        correct_answer = True
+        print("Acertou!")
+        sleep(1)
+        os.system("clear")
+    if correct_answer is False:
+      break
+    print("Parabéns, passou à próxima fase!")
+    sleep(1.5)
+    os.system("clear")
+    print("Para ganhar o jogo tem de memorizar a seguinte lista de números por ordem crescente, por exemplo \"1, 2, 3, 4, 5\"")
+    sleep(2)
+    os.system("clear")
+    sleep(1)
+    list1 = random.sample(range(1, 50), 5)
+    print(list1)
+    sleep(3)
+    os.system("clear")
+    list1.sort()
+    list_answer = []
+    try:
+      first_number = float(input("Coloque o primeiro número: "))
+      if first_number != list1[0]:
+        print("Perdeu!\n")
+        break
+      second_number = float(input("Coloque o segundo número: "))
+      if second_number != list1[1]:
+        print("Perdeu!\n")
+        break
+      third_number = float(input("Coloque o terceiro número: "))
+      if third_number != list1[2]:
+        print("Perdeu!\n")
+        break
+      fourth_number = float(input("Coloque o quarto número: "))
+      if fourth_number != list1[3]:
+        print("Perdeu!\n")
+        break
+      fifth_number = float(input("Coloque o quinto número: "))
+      if fifth_number != list1[4]:
+        print("Perdeu!\n")
+        break
+      print("Parabéns, você GANHOU!!!\n")
+      
+    except:
+      print("Resposta inválida")
+    
+        
+
+
+
+    
+
+
+    
